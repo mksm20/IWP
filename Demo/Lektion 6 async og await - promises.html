@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IWP Validation Exercise</title>
+  <meta charset="UTF-8">
+<script>
+onload
+function monkeysJump(event) {
+  event.preventDefault()
+  document.getElementById("myForm").addEventListener("submit", monkeysJump);
+  const text = document.querySelector("#message");
+  let monkeys = document.getElementById("monkeys").value;
+  const promise1 = new Promise(function(resolve, reject) {
+    if(monkeys <= 5){
+      resolve({
+        message: `${monkeys}`
+      });
+    }
+    else{
+      reject({
+        message: "Too many"
+      })
+    }
+  })
+  .then((message) => {
+      console.log(message);
+  })
+  .catch((message) => {
+      console.log(message);
+  })
+}
+</script>
+
+</head>
+<body>
+  <form id="myForm" >
+    How many little monkeys are jumping on the bed? <input type="text" id="monkeys" value=""><input type="submit">
+  </form>
+  <div id="message" style="white-space: pre;" ></div>
+
+  <script> 
+    onload
+    document.getElementById("myForm").addEventListener("submit", monkeysJump);
+    function timer(){
+      arr = ["Hej", "IWP" ,"I am done"];
+      const wait = ms => new Promise((resolve) => setTimeout(resolve, ms));
+      for(let i = 1; i <= 3; i++){
+        wait(i*2*1000).then(() => console.log(arr[i-1]));
+      }
+    }
+    timer();
+    f();
+    async function f() {
+      arr = ["Hej", "IWP" ,"I am done"];
+      let result = [];
+      const wait2 = ms => new Promise((resolve) => setTimeout(resolve, ms));
+      for(let i = 1; i <= 3; i++){
+        await wait2(2*1000);
+        result[i] = arr[i-1]; // wait until the promise resolves (*)
+        console.log(result[i]); // "done!"
+    }
+  }
+  </script>
+</body> 

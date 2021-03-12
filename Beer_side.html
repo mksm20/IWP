@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <title>IWP Demo</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+    <form id="beerForm">
+    <fieldset> <legend> Vælg Øl Type: </legend>
+        <input type="radio" name="gæringstype" value="ales" > Overgæret (Ale)       
+        <input type="radio" name="gæringstype" value="lagers" > Undergæret (Lager)  
+        <input type="radio" name="gæringstype" value="wilds" > Vildtgæret (Lambic)
+        </fieldset>
+    </form> 
+<!-- <script>
+    function getValue(){
+        let value = document.querySelector('input[name = "gæringstype"]:checked').value;
+        console.log(value);
+    }
+</script> -->
+
+
+<script>
+    function dropdown(x, y){
+        let RB = document.querySelectorAll("input[type='radio']");//Variable RB selects all elements of type radio
+        let beerTypes={
+            ales: ["Bitter", "Pale Ale", "Brown Ale", "Trappist", "Porter",  "Weizenbier"], //Put in JSON file
+            lagers:["Pilsner", "Münchener", "Wiener", "Bock", "Porter"],
+            wilds: ["Gueuze", "Faro", "Fruit"]
+        }
+        let myParent = document.body;                             //Creates variable called myParent, acts as parent for selectlist
+        let selectList = document.createElement("select");        //Creates a select type element called selectList
+        selectList.id = "beers";                                  
+        myParent.appendChild(selectList);                         //Appends selectList 
+        for(let i = 0; i < RB.length; i++){                       
+            let beers = ["ales", "lagers", "wilds"];
+            RB[i].addEventListener("change", e=>{                 //Adds eventlistner for change on every radio element
+                if(RB[i]){                                        //Sees if change has occured 
+                    let option = document.createElement("option") //Creates an element, option that goes in dropdown menu select
+                    option.value = beerTypes[beers[i]];           //Gives option values from object beers
+                    option.text = beerTypes[beers[i]];            //Gives option text from object beers
+                    if(x != 0){                                   //If X has been incremented
+                        selectList.remove(option);                //Remove option
+                    }               
+                    selectList.appendChild(option);               //Appends option as child to select
+                    x++;              
+                }
+            });
+        };
+        
+}
+</script>
+
+<script>
+    window.onload = dropdown(0, 0); //Runs dropdownscript on page load
+</script>
+
+<script>
+    window.onload = function test(){
+    const heading = document.createElement("h1");//Creates an h1 elements
+    heading.append("Vælg en øltype"); //Appends this text to the newly created h1 element
+    document.querySelector("#beerForm").before(heading); //injects element before id beerform
+    };
+</script> 
+
+ <!-- <script>
+    let RB = document.querySelectorAll("input[type='radio']"); //Selects all inputs of type radio and saves in an array
+    for(let i = 0; i < RB.length; i++){
+        RB[i].addEventListener("click", e=>{ //Lambda function in for loop that prints the value of the ith's button
+        for(let i = 0; i < RB.length; i++ ){
+            console.log(RB[i].value);
+            console.log(RB[i].checked);
+        };
+    })//Closes the lambda funtion
+    }
+    let arr = document.querySelectorAll("body"); //Selects all elements in the body attribute
+    for(let i = 0; i < arr.length; i++){  //Iterates over every element
+        arr[i].addEventListener("mouseover", e => //Adds event listener for every element
+        console.log(e.target.value + " " + e.target.innerHTML)  //Logs value for mouse placement
+        );
+    }
+}
+</script> --> 
+<!-- <script src="http://people.cs.aau.dk/~bnielsen/IWP/test.js"> // bad idea, could be a malicious script</script>  -->
+</body>    
+</html>    

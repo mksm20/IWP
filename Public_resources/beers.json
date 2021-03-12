@@ -1,0 +1,5 @@
+let = beerTypes={
+    ales: ["Bitter", "Pale Ale", "Brown Ale", "Trappist", "Porter",  "Weizenbier"], //Put in JSON file
+    lagers:["Pilsner", "Münchener", "Wiener", "Bock", "Porter"],
+    wilds: ["Gueuze", "Faro", "Fruit"]
+}

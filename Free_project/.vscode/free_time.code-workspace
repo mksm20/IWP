@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "..\\node"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "pwa-node",
+				"request": "launch",
+				"name": "Launch Program",
+				"skipFiles": [
+					"<node_internals>/**"
+				],
+				"program": "c:\\Users\\martin mortensen\\Desktop\\IWP\\Free_project\\node\\my_program.js",
+				"__workspaceFolder": "c:\\Users\\martin mortensen\\Desktop\\IWP\\Free_project\\node"
+			}
+		]
+	}
+}
